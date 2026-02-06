@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="../css/Register.css">
+</head>
+
+<body>
+
+    <div id="reg-container"><!-- flex -->
+        <div id="reg-box"><!-- flex -->
+            <div id="confirm" class="Confirm-active">Account created successfully!</div>
+            <div id="title">Create Account</div>
+            <form action="" id="reg-form"><!-- flex -->
+
+                <!-- name input -->
+                <div class="input-box"><!-- flex -->
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter you Name" required>
+                    <span class="error-message" id="name-span"></span>
+                </div>
+
+                <!-- email input -->
+                <div class="input-box"><!-- flex -->
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="example@gamil.com" required>
+                    <span class="error-message" id="email-span"></span>
+                </div>
+
+                <!-- password input -->
+                <div class="input-box"><!-- flex -->
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter Password (8+ chars)"
+                        required>
+                    <span class="error-message" id="password-span"></span>
+                </div>
+
+                <!-- confirm password input -->
+                <div class="input-box"><!-- flex -->
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword"
+                        placeholder="confrim your password" required>
+                    <span class="error-message" id="confirmPassword-span"></span>
+                </div>
+
+                <button type="submit" id="registerBtn">Sign Up</button>
+
+            </form>
+            <div id="footer">
+                <p>Already have an account?</p>
+                <a href="Login.html">Login here</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/Register.js"></script>
+</body>
+
+</html>
