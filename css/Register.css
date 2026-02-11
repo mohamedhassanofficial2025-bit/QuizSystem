@@ -24,14 +24,17 @@
   width: 350px;
 }
 
-.Confirm-active {
+/* .Confirm-active {
   display: none;
   text-align: center;
   padding: 15px 30px;
   border-radius: 14px;
   background-color: rgb(17, 137, 55);
   color: white;
-}
+} */
+
+
+
 
 #title {
   margin-top: 20px;

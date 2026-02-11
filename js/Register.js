@@ -171,33 +171,49 @@ function validateSignUP(e) {
         confirmPassword: userConfirmPassword.value
     };
 
-    console.log(userData);
+    // console.log(userData);
+
 
 
 
     if (SignUpState) {
         document.querySelector(".Confirm-active").style.display = "block";
 
-        // add new user
+        
         users = getDataFromLocalStorage();
 
-        users.push(userData);
-
-        console.log(users);
-
+        
+        var flag = false;
+        if (users.length > 0) {
+            for (var i = 0; i < users.length; i++) {
+                if (users[i].email === userEmail.value) {
+                    flag = true;
+                }
+            }
+            if (flag == false) {
+                users.push(userData);
+                document.querySelector(".Confirm-active").textContent = "Account created successfully!";
+                document.querySelector(".Confirm-active").style.backgroundColor = " rgb(17, 137, 55)";
+                document.querySelector(".Confirm-active").style.color = "white";
+            } else if(flag == true) {
+                document.querySelector(".Confirm-active").textContent = "You are Already Registered Go to login page!";
+                document.querySelector(".Confirm-active").style.backgroundColor = " rgb(161, 42, 9)";
+            }
+        } else {
+            users.push(userData);
+        }
         setDataToLocalStorage(users);
-
 
         setTimeout(() => {
             document.querySelector(".Confirm-active").style.display = "block";
-            // location.replace("../html/Login.html")
+            location.replace("../html/Login.html")
         }, 1000);
 
     }
 
 }
 
-
+// localStorage.clear();
 
 SignUP.addEventListener("click", function (e) {
     validateSignUP(e);
