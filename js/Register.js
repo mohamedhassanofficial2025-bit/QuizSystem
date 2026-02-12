@@ -177,12 +177,12 @@ function validateSignUP(e) {
 
 
     if (SignUpState) {
-        document.querySelector(".Confirm-active").style.display = "block";
+        // document.querySelector(".Confirm-active").style.display = "block";
 
-        
+
         users = getDataFromLocalStorage();
 
-        
+
         var flag = false;
         if (users.length > 0) {
             for (var i = 0; i < users.length; i++) {
@@ -192,23 +192,20 @@ function validateSignUP(e) {
             }
             if (flag == false) {
                 users.push(userData);
-                document.querySelector(".Confirm-active").textContent = "Account created successfully!";
-                document.querySelector(".Confirm-active").style.backgroundColor = " rgb(17, 137, 55)";
-                document.querySelector(".Confirm-active").style.color = "white";
-            } else if(flag == true) {
-                document.querySelector(".Confirm-active").textContent = "You are Already Registered Go to login page!";
-                document.querySelector(".Confirm-active").style.backgroundColor = " rgb(161, 42, 9)";
+                ToastSuccessRegister();
+            } else if (flag == true) {
+                ToastFailRegister();
             }
         } else {
             users.push(userData);
         }
         setDataToLocalStorage(users);
 
-        setTimeout(() => {
-            document.querySelector(".Confirm-active").style.display = "block";
-            location.replace("../html/Login.html")
-        }, 1000);
-
+        if (flag == false) {
+            setTimeout(() => {
+                location.replace("../html/Login.html");
+            }, 1500);
+        }
     }
 
 }
@@ -218,3 +215,31 @@ function validateSignUP(e) {
 SignUP.addEventListener("click", function (e) {
     validateSignUP(e);
 })
+
+
+var SuccessToast = document.getElementById("SuccessToast");
+var FailToast = document.getElementById("FailToast");
+
+console.log(SuccessToast, FailToast);
+
+// Toast Register Success
+function ToastSuccessRegister() {
+    SuccessToast.classList.remove("opacity-0");
+    SuccessToast.classList.add("opacity-100");
+
+    setTimeout(function () {
+        SuccessToast.classList.remove("opacity-100");
+        SuccessToast.classList.add("opacity-0");
+    }, 3000);
+}
+
+// Toast Register Fail
+function ToastFailRegister() {
+    FailToast.classList.remove("opacity-0");
+    FailToast.classList.add("opacity-100");
+
+    setTimeout(function () {
+        FailToast.classList.remove("opacity-100");
+        FailToast.classList.add("opacity-0");
+    }, 3000);
+}

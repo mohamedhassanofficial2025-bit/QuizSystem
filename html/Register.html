@@ -5,14 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="../css/Register.css">
 </head>
 
 <body>
-
+    <div id="SuccessToast" class="Hidden fixed top-5 right-5 px-6 py-3 bg-green-600 text-white rounded-full
+                shadow-lg transition-opacity duration-300 opacity-0 z-50">
+        Account Created successfully
+    </div>
+    <div id="FailToast" class="Hidden fixed top-5 right-5 px-6 py-3 bg-red-500 text-white rounded-full
+                    shadow-lg transition-opacity duration-300 opacity-0 z-50">
+        You Already Have Account!;
+    </div>
     <div id="reg-container"><!-- flex -->
         <div id="reg-box"><!-- flex -->
-            <div id="confirm" class="Confirm-active">Account created successfully!</div>
+            <!-- <div id="confirm" class="Confirm-active">Account created successfully!</div> -->
             <div id="title">Create Account</div>
             <form action="" id="reg-form"><!-- flex -->
 
@@ -55,7 +63,6 @@
             </div>
         </div>
     </div>
-
     <script src="../js/Register.js"></script>
 </body>
 
