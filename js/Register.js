@@ -168,7 +168,7 @@ function validateSignUP(e) {
         name: userName.value,
         email: userEmail.value,
         password: userPassword.value,
-        confirmPassword: userConfirmPassword.value
+        confirmPassword: userConfirmPassword.value,
     };
 
     // console.log(userData);
@@ -224,22 +224,18 @@ console.log(SuccessToast, FailToast);
 
 // Toast Register Success
 function ToastSuccessRegister() {
-    SuccessToast.classList.remove("opacity-0");
-    SuccessToast.classList.add("opacity-100");
+    SuccessToast.style.opacity = 100;
 
     setTimeout(function () {
-        SuccessToast.classList.remove("opacity-100");
-        SuccessToast.classList.add("opacity-0");
+        SuccessToast.style.opacity = 0;
     }, 3000);
 }
 
 // Toast Register Fail
 function ToastFailRegister() {
-    FailToast.classList.remove("opacity-0");
-    FailToast.classList.add("opacity-100");
+    FailToast.style.opacity = 100;
 
     setTimeout(function () {
-        FailToast.classList.remove("opacity-100");
-        FailToast.classList.add("opacity-0");
+        FailToast.style.opacity = 0;
     }, 3000);
 }

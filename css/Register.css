@@ -8,6 +8,7 @@
   background: linear-gradient(135deg, #74ebd5, #9face6);
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -32,9 +33,6 @@
   background-color: rgb(17, 137, 55);
   color: white;
 } */
-
-
-
 
 #title {
   margin-top: 20px;
@@ -108,4 +106,23 @@ input:focus {
   margin-top: 10px;
   display: flex;
   gap: 5px;
+}
+
+#SuccessToast {
+  background-color: green;
+  border: 1px green solid;
+  border-radius: 12px;
+  padding: 6px 3px;
+  color: white;
+  transition: 300ms;
+  opacity: 0;
+}
+#FailToast {
+  background-color: red;
+  border: 1px red solid;
+  border-radius: 12px;
+  padding: 6px 3px;
+  color: white;
+  transition: 300ms;
+  opacity: 0;
 }
