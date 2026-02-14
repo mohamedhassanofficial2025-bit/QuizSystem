@@ -14,7 +14,6 @@
 
 #reg-box {
   background-color: rgb(255, 255, 255);
-  border: #74ebd5 solid 2px;
   padding: 25px 10px;
   border-radius: 20px;
   display: flex;
@@ -103,6 +102,7 @@ input:focus {
   box-shadow: 0px 8px 20px rgba(59, 130, 246, 0.35);
   transition: 0.3s ease;
 }
+
 
 #footer {
   margin-top: 10px;
