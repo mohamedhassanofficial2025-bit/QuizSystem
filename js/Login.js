@@ -87,23 +87,27 @@ function validateLogin(e){
         if(users.length > 0){
             for(var i = 0;i< users.length;i++){
                 if(users[i].email === userEmail.value){
-                    flag = true;
+                    if(users[i].password === userPassword.value)
+                    {
+                        flag = true;
+                    }
                 }
             }
 
         }
         else{
-            //system has no users
+            ToastFailLogin()
         }
 
         if(flag== true)
         {
+            ToastSuccessLogin();
             setTimeout(() => {
                 location.replace("../html/Exam.html");
             }, 1500);
         }
         else{
-            //no matching user
+            ToastFailLogin()
         }
 
     }
@@ -114,3 +118,25 @@ function validateLogin(e){
 login.addEventListener("click", function (e) {
     validateLogin(e);
 })
+
+
+var SuccessToast = document.getElementById("SuccessToast");
+var FailToast = document.getElementById("FailToast");
+
+// Toast Register Success
+function ToastSuccessLogin() {
+    SuccessToast.style.opacity = 100;
+
+    setTimeout(function () {
+        SuccessToast.style.opacity = 0;
+    }, 3000);
+}
+
+// Toast Register Fail
+function ToastFailLogin() {
+    FailToast.style.opacity = 100;
+
+    setTimeout(function () {
+        FailToast.style.opacity = 0;
+    }, 3000);
+}
