@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <!-- <link rel="stylesheet" href="../output.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="../css/Exam.css">
+</head>
+
+<body>
+    <div id="home"
+        class="bg-linear-to-br from-blue-500 via-purple-400 to-pink-300 h-screen w-full flex justify-center items-center">
+        <div id="container" class="w-10/12 ">
+            <div id="ExamTimer" class="px-3 py-2 bg-blue-600 rounded-t-xl text-center text-white "></div>
+            <div id="examContainer" class="flex flex-col md:flex-row">
+                <div id="QuestionsContainer" class="w-full md:2/3">
+                    <div id="QuestionId" class="hidden"></div>
+                    <div id="Question" class="p-10 bg-fuchsia-700 col-span-2">
+                        <div id="QuestionHead" class="text-white text-xl font-bold">How Are you?</div>
+                        <div class="space-y-3 mt-5" id="Questions">
+                            <!-- <div id="AnswerRadio" class="">Hello</div> -->
+                            <label class="cursor-pointer block">
+                                <input type="radio" name="Answer" value="A" class="hidden peer">
+                                <div
+                                    class="AnswerOptions px-6 py-1 bg-white text-black hover:bg-fuchsia-700 hover:text-white
+                                font-bold transition rounded-lg border peer-checked:bg-fuchsia-700 peer-checked:text-white">
+                                    Option A
+                                </div>
+                            </label>
+                            <label class="cursor-pointer block">
+                                <input type="radio" name="Answer" value="B" class="hidden peer">
+                                <div
+                                    class="AnswerOptions px-6 py-1 bg-white text-black hover:bg-fuchsia-700 hover:text-white
+                                                            font-bold transition rounded-lg border peer-checked:bg-fuchsia-700 peer-checked:text-white">
+                                    Option B
+                                </div>
+                            </label>
+                            <label class="cursor-pointer block">
+                                <input type="radio" name="Answer" value="C" class="hidden peer">
+                                <div
+                                    class="AnswerOptions px-6 py-1 bg-white text-black hover:bg-fuchsia-700 hover:text-white
+                                                            font-bold transition rounded-lg border peer-checked:bg-fuchsia-700 peer-checked:text-white">
+                                    Option C
+                                </div>
+                            </label>
+                            <label class="cursor-pointer block">
+                                <input type="radio" name="Answer" value="D" class="hidden peer">
+                                <div
+                                    class="AnswerOptions px-6 py-1 bg-white text-black hover:bg-fuchsia-700 hover:text-white
+                                                            font-bold transition rounded-lg border peer-checked:bg-fuchsia-700 peer-checked:text-white">
+                                    Option D
+                                </div>
+                            </label>
+                        </div>
+
+                    </div>
+                    <div id="QuestionControl" class="p-3 bg-orange-700 grid grid-cols-4 gap-1 md:gap-5">
+                        <button id="PrevousBtn"
+                            class="px-1 py-1 bg-red-600 rounded-xl text-white hover:bg-white  hover:text-red-600 cursor-pointer border hover:border-black ">Prevous</button>
+                        <button id="HoldBtn"
+                            class="px-1 py-1 bg-amber-600 rounded-xl text-white hover:bg-white  hover:text-amber-600 cursor-pointer border hover:border-black ">Hold</button>
+                        <button id="NextBtn"
+                            class="px-1 py-1 bg-green-600 rounded-xl text-white hover:bg-white  hover:text-green-600 cursor-pointer border hover:border-black ">Next</button>
+                        <button id="SubmitBtn"
+                            class="px-1 py-1 bg-blue-600 rounded-xl text-white hover:bg-white  hover:text-blue-600 cursor-pointer border hover:border-black ">Submit</button>
+                    </div>
+                </div>
+                <div id="QuestionNavigator" class="p-4 md:p-6 bg-amber-600 w-full md:w-1/3">
+                    <div id="AllQuestions">
+                        <h2>All Questions</h2>
+                        <div id="TrackQuestions" class="grid grid-cols-4 md:grid-cols-5 gap-2 mt-3">
+                            <button
+                                class="TrackBtns inline-block text-center px-4 py-2 bg-gray-300 rounded-2xl shadow-lg shadow-gray-700 hover:shadow-2xl hover:scale-105 transition transform">1</button>
+                            <button
+                                class="TrackBtns inline-block text-center px-4 py-2 bg-gray-300 rounded-2xl shadow-lg shadow-gray-700 hover:shadow-2xl hover:scale-105 transition transform ">2</button>
+                            <button
+                                class="TrackBtns inline-block text-center px-4 py-2 bg-gray-300 rounded-2xl shadow-lg shadow-gray-700 hover:shadow-2xl hover:scale-105 transition transform ">3</button>
+                            <button
+                                class="TrackBtns inline-block text-center px-4 py-2 bg-gray-300 rounded-2xl shadow-lg shadow-gray-700 hover:shadow-2xl hover:scale-105 transition transform ">4</button>
+                            <button
+                                class="TrackBtns inline-block text-center px-4 py-2 bg-gray-300 rounded-2xl shadow-lg shadow-gray-700 hover:shadow-2xl hover:scale-105 transition transform ">5</button>
+                            <button
+                                class="TrackBtns inline-block text-center px-4 py-2 bg-gray-300 rounded-2xl shadow-lg shadow-gray-700 hover:shadow-2xl hover:scale-105 transition transform ">6</button>
+                            <button
+                                class="TrackBtns inline-block text-center px-4 py-2 bg-gray-300 rounded-2xl shadow-lg shadow-gray-700 hover:shadow-2xl hover:scale-105 transition transform ">7</button>
+                            <button
+                                class="TrackBtns inline-block text-center px-4 py-2 bg-gray-300 rounded-2xl shadow-lg shadow-gray-700 hover:shadow-2xl hover:scale-105 transition transform ">8</button>
+                            <button
+                                class="TrackBtns inline-block text-center px-4 py-2 bg-gray-300 rounded-2xl shadow-lg shadow-gray-700 hover:shadow-2xl hover:scale-105 transition transform ">9</button>
+                            <button
+                                class="TrackBtns inline-block text-center px-4 py-2 bg-gray-300 rounded-2xl shadow-lg shadow-gray-700 hover:shadow-2xl hover:scale-105 transition transform ">10</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/Exam.js"></script>
+</body>
+
+</html>
