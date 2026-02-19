@@ -56,7 +56,7 @@ function validatePassword() {
         userPassword.style.borderColor = "red";
         return 0;
     }
-    else{
+    else {
         passwordSpan.textContent = "";
         userPassword.style.borderColor = "rgba(116, 235, 213, 0.8)";
         return 1;
@@ -68,45 +68,44 @@ userPassword.addEventListener("input", function () {
 })
 
 //----------------------------------------------------------------------
-var users =  [];
+var users = [];
 
-function getDataFromLocalStorage(){
+function getDataFromLocalStorage() {
     return JSON.parse(localStorage.getItem("users")) || [];
 }
 
-function validateLogin(e){
+function validateLogin(e) {
     let loginState = validateEmail() && validatePassword();
     e.preventDefault();
 
-    if(loginState){
+    if (loginState) {
 
 
         users = getDataFromLocalStorage();
 
         var flag = false;
-        if(users.length > 0){
-            for(var i = 0;i< users.length;i++){
-                if(users[i].email === userEmail.value){
-                    if(users[i].password === userPassword.value)
-                    {
+        if (users.length > 0) {
+            for (var i = 0; i < users.length; i++) {
+                if (users[i].email === userEmail.value) {
+                    if (users[i].password === userPassword.value) {
                         flag = true;
                     }
                 }
             }
 
         }
-        else{
+        else {
             ToastFailLogin()
         }
 
-        if(flag== true)
-        {
+        if (flag == true) {
             ToastSuccessLogin();
+            sessionStorage.setItem("UserGuard", JSON.stringify(userEmail.value));
             setTimeout(() => {
                 location.replace("../html/Exam.html");
             }, 1500);
         }
-        else{
+        else {
             ToastFailLogin()
         }
 
