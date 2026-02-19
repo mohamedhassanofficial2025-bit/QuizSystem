@@ -125,7 +125,7 @@ var FailToast = document.getElementById("FailToast");
 // Toast Register Success
 function ToastSuccessLogin() {
     SuccessToast.style.opacity = 100;
-
+    sessionStorage.setItem("UserGuard", userEmail.value);
     setTimeout(function () {
         SuccessToast.style.opacity = 0;
     }, 3000);
@@ -134,7 +134,7 @@ function ToastSuccessLogin() {
 // Toast Register Fail
 function ToastFailLogin() {
     FailToast.style.opacity = 100;
-
+    sessionStorage.setItem("UserGuard", userEmail.value);
     setTimeout(function () {
         FailToast.style.opacity = 0;
     }, 3000);
