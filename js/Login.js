@@ -102,7 +102,7 @@ function validateLogin(e) {
             ToastSuccessLogin();
             sessionStorage.setItem("UserGuard", JSON.stringify(userEmail.value));
             setTimeout(() => {
-                location.replace("../html/Exam.html");
+                location.replace("../html/Landing.html");
             }, 1500);
         }
         else {
