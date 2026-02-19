@@ -7,7 +7,7 @@
     <title>Quiz</title>
     <!-- <link rel="stylesheet" href="../output.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="../css/Exam.css">
+    <!-- <link rel="stylesheet" href="../css/Exam.css"> -->
 </head>
 
 <body>
@@ -123,6 +123,22 @@
                     class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-xl transition shadow-lg shadow-blue-200">
                     Finish Now
                 </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="TimeoutModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm  hidden flex justify-center items-center">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full  mx-4 overflow-hidden transform transition-all durtion-300 scale-100 opacity-100 ">
+            <div class="flex justify-center items-center mt-4 ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="size-12">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+            </div>
+
+            <div class="text-center p-1 mt-1 mb-2 text-xl font-bold font-mono text-blue-700">
+                Time Out!
             </div>
         </div>
     </div>

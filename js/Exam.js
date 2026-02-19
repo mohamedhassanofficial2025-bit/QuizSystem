@@ -446,10 +446,10 @@ if (!sessionStorage.getItem("UserGuard")) {
     //timer implementation
     var ExamTimer = document.getElementById("ExamTimer");
 
-
+    // sessionStorage.removeItem("ExamTime");
 
     if (!sessionStorage.getItem("ExamTime")) {
-        var duration = 10 * 60 * 1000;
+        var duration = 10 * 60  *  1000;
         var endTime = Date.now() + duration;
         sessionStorage.setItem("ExamTime", endTime);
     }
@@ -460,7 +460,10 @@ if (!sessionStorage.getItem("UserGuard")) {
         let timeleft = endTime - Date.now();
         if (timeleft <= 0) {
             clearInterval(Timer);
-            ExamTimer.textContent = "timeOut";
+            ExamTimer.textContent = "Time Out";
+            TimeoutModal.classList.remove('hidden');
+            TimeoutModal.classList.add('flex');
+            submitAnswers();
         } else {
             var timeInSec = Math.ceil((timeleft) / 1000);
             var Seconds = Math.floor(timeInSec % 60);
@@ -472,10 +475,12 @@ if (!sessionStorage.getItem("UserGuard")) {
             } else {
                 ExamTimer.textContent = `${Minutes}:${Seconds}`;
             }
+            let TimeoutModal = document.getElementById("TimeoutModal");
         }
     }, 1000)
 
-
+    // var TimeoutModal = document.getElementById("TimeoutModal");
+    // console.log(TimeoutModal);
 
     /**
      * submit condition 
@@ -529,6 +534,6 @@ if (!sessionStorage.getItem("UserGuard")) {
         sessionStorage.setItem("Result", JSON.stringify(Result));
         setTimeout(() => {
             window.location.replace("../html/Result.html");
-        }, 500);
+        }, 1000);
     }
 }
