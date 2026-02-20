@@ -3,6 +3,22 @@
 if (!sessionStorage.getItem("UserGuard")) {
     location.replace("../html/Login.html");
 } else {
+
+    //check user if he has result
+    IsThereResult();
+
+    function IsThereResult() {
+        let tokenUser = JSON.parse(sessionStorage.getItem("UserGuard"));
+        // localStorage.removeItem("users");
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        console.log(users);
+        users.forEach(function (element) {
+            if (element.email == tokenUser && element.Result) {
+                    location.replace("../html/Result.html");
+            }
+            // console.log(element.Result);
+        })
+    }
     /**
  * implementation of body of Exam
  */
@@ -275,7 +291,7 @@ if (!sessionStorage.getItem("UserGuard")) {
             AnswerOptions[3].textContent = Questions[CurrentIndex + 1].D;
         }
         //check for answer
-        userAnswersSession = JSON.parse(sessionStorage.getItem("userAnswersSession")) || [];
+        var userAnswersSession = JSON.parse(sessionStorage.getItem("userAnswersSession")) || [];
 
         for (var x = 0; x < RadioAnswers.length; x++) {
             RadioAnswers[x].checked = false;
@@ -312,7 +328,7 @@ if (!sessionStorage.getItem("UserGuard")) {
             AnswerOptions[2].textContent = Questions[CurrentIndex].C;
             AnswerOptions[3].textContent = Questions[CurrentIndex].D;
 
-            userAnswersSession = JSON.parse(sessionStorage.getItem("userAnswersSession")) || [];
+            var userAnswersSession = JSON.parse(sessionStorage.getItem("userAnswersSession")) || [];
 
             var ID = QuestionId.textContent;
 
@@ -348,7 +364,7 @@ if (!sessionStorage.getItem("UserGuard")) {
             var ID = QuestionId.textContent;
             TrackBtns[parseInt(ID)].style.backgroundColor = "lightGreen";
 
-            userAnswersSession = JSON.parse(sessionStorage.getItem("userAnswersSession")) || [];
+            var userAnswersSession = JSON.parse(sessionStorage.getItem("userAnswersSession")) || [];
 
             if (userAnswersSession.length == 0) {
                 UserOptionSession.QuestId = parseInt(ID);
@@ -385,7 +401,7 @@ if (!sessionStorage.getItem("UserGuard")) {
 
 
     HoldBtn.addEventListener("click", function () {
-        QuestionsCopy = JSON.parse(sessionStorage.getItem("QuestionsCopy"))
+        var QuestionsCopy = JSON.parse(sessionStorage.getItem("QuestionsCopy"))
         var ID = QuestionId.textContent;
 
         QuestionsCopy[ID].Hold = true;
@@ -402,9 +418,9 @@ if (!sessionStorage.getItem("UserGuard")) {
      * if there is areload happened
      */
     window.addEventListener("load", function () {
-        QuestionsCopy = JSON.parse(sessionStorage.getItem("QuestionsCopy"));
+        let QuestionsCopy = JSON.parse(sessionStorage.getItem("QuestionsCopy"));
 
-        userAnswersSession = JSON.parse(sessionStorage.getItem("userAnswersSession")) || [];
+        let userAnswersSession = JSON.parse(sessionStorage.getItem("userAnswersSession")) || [];
 
         userAnswersSession.forEach(function (element) {
             TrackBtns[parseInt(element.QuestId)].style.backgroundColor = "lightGreen";
@@ -492,6 +508,8 @@ if (!sessionStorage.getItem("UserGuard")) {
     const confirmBtn = document.getElementById('confirmSubmit');
 
 
+
+    //handle user submitting
     submitBtn.addEventListener('click', (e) => {
         e.preventDefault();
         modal.classList.remove('hidden');
@@ -518,6 +536,9 @@ if (!sessionStorage.getItem("UserGuard")) {
         }
     });
 
+    /**
+     * function that submit result;
+     */
     function submitAnswers() {
         Questions = JSON.parse(sessionStorage.getItem("Questions"));
         userAnswersSession = JSON.parse(sessionStorage.getItem("userAnswersSession")) || [];
@@ -531,9 +552,29 @@ if (!sessionStorage.getItem("UserGuard")) {
             console.log(question.Answer);
             console.log(Questions[question.QuestId].Answer);
         })
-        sessionStorage.setItem("Result", JSON.stringify(Result));
+        // sessionStorage.setItem("Result", JSON.stringify(Result));
+        AddResultToUser(Result);
         setTimeout(() => {
             window.location.replace("../html/Result.html");
         }, 1000);
     }
+
+    /**
+     * function add result to user
+     */
+    function AddResultToUser(result) {
+        let tokenUser = JSON.parse(sessionStorage.getItem("UserGuard"));
+        // localStorage.removeItem("users");
+        let users = JSON.parse(localStorage.getItem("users"));
+        console.log(users);
+        users.forEach(function (element) {
+            if (element.email == tokenUser) {
+                element.Result = result;
+            }
+            // console.log(element.Result);
+        })
+        console.log(users);
+        localStorage.setItem("users",JSON.stringify(users))
+    }
+    
 }
