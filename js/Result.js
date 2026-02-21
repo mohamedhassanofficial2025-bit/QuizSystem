@@ -9,7 +9,7 @@ const users = JSON.parse(localStorage.getItem("users")) || [];
 const user = users.find(u => u.email === tokenUser);
 
 if (!user || user.Result === undefined) {
-    location.replace("../html/Landing.html");
+    location.replace("../html/Login.html");
 }
 
 //----------------------------------------------------------------------------

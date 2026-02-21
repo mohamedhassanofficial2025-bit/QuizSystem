@@ -101,19 +101,14 @@ function validateLogin(e) {
         if (flag == true) {
             ToastSuccessLogin();
             sessionStorage.setItem("UserGuard", JSON.stringify(userEmail.value));
-            
+
             let users = JSON.parse(localStorage.getItem("users"));
-            users.forEach(function (element) {
-                if (element.email == userEmail.value && (element.Result)) {
-                    setTimeout(() => {
-                        location.replace("../html/Result.html");
-                    }, 1500);
-                } else {
-                    setTimeout(() => {
-                        location.replace("../html/Landing.html");
-                    }, 1500);
-                }
-            })
+            let hasResult = users.some(element => element.email == userEmail.value && element.Result);
+            if (hasResult) {
+                location.replace("../html/Result.html");
+            } else {
+                location.replace("../html/Landing.html");
+            }
         }
         else {
             ToastFailLogin()
