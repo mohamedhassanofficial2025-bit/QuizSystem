@@ -7,14 +7,17 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="bg-slate-900 text-white min-h-screen p-10">
+<body class="bg-slate-900 text-white flex items-center justify-center min-h-screen">
 
-    <div class="max-w-4xl mx-auto">
-        <h1 class="text-3xl font-bold mb-6 text-center">Exam Result</h1>
+    <div class="bg-slate-800 p-12 rounded-3xl text-center shadow-xl w-full max-w-lg">
+        <h1 class="text-4xl font-bold mb-4">Exam Result</h1>
 
-        <div id="scoreBox" class="text-center text-2xl font-bold mb-10"></div>
+        
+        <div id="userName" class="text-xl text-slate-300 mb-8"></div>
 
-        <div id="resultsContainer" class="space-y-6"></div>
+        <div id="scoreBox" class="text-3xl font-semibold mb-4"></div>
+        <div class="text-xl text-slate-400 mb-2">Your Percentage:</div>
+        <div id="percentageText" class="text-5xl font-extrabold text-green-400"></div>
     </div>
 
     <script src="../js/Result.js"></script>
