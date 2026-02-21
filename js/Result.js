@@ -17,7 +17,7 @@ const userName = document.getElementById("userName");
 userName.textContent = `Student: ${user.name}`;
 
 //--------------------------------------------------------------------------------
-const Questions = JSON.parse(sessionStorage.getItem("Questions")) || [];
+const Questions = JSON.parse(localStorage.getItem("Questions")) || [];
 const totalQuestions = Questions.length;
 const score = user.Result || 0;
 const percentage = ((score / totalQuestions) * 100).toFixed(2);

@@ -12,6 +12,6 @@ if (!sessionStorage.getItem("UserGuard")) {
         }
 
 
-        window.location.href = "../html/Exam.html";
+        window.location.replace("../html/Exam.html");
     });
 }

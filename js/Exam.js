@@ -4,21 +4,7 @@ if (!sessionStorage.getItem("UserGuard")) {
     location.replace("../html/Login.html");
 } else {
 
-    //check user if he has result
-    IsThereResult();
-
-    function IsThereResult() {
-        let tokenUser = JSON.parse(sessionStorage.getItem("UserGuard"));
-        // localStorage.removeItem("users");
-        let users = JSON.parse(localStorage.getItem("users")) || [];
-        console.log(users);
-        users.forEach(function (element) {
-            if (element.email == tokenUser && element.Result) {
-                    location.replace("../html/Result.html");
-            }
-            // console.log(element.Result);
-        })
-    }
+    
     /**
  * implementation of body of Exam
  */

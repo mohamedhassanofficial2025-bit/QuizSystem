@@ -101,9 +101,19 @@ function validateLogin(e) {
         if (flag == true) {
             ToastSuccessLogin();
             sessionStorage.setItem("UserGuard", JSON.stringify(userEmail.value));
-            setTimeout(() => {
-                location.replace("../html/Landing.html");
-            }, 1500);
+            
+            let users = JSON.parse(localStorage.getItem("users"));
+            users.forEach(function (element) {
+                if (element.email == userEmail.value && (element.Result)) {
+                    setTimeout(() => {
+                        location.replace("../html/Result.html");
+                    }, 1500);
+                } else {
+                    setTimeout(() => {
+                        location.replace("../html/Landing.html");
+                    }, 1500);
+                }
+            })
         }
         else {
             ToastFailLogin()
@@ -112,7 +122,6 @@ function validateLogin(e) {
     }
 
 }
-
 
 login.addEventListener("click", function (e) {
     validateLogin(e);
@@ -125,7 +134,6 @@ var FailToast = document.getElementById("FailToast");
 // Toast Register Success
 function ToastSuccessLogin() {
     SuccessToast.style.opacity = 100;
-    sessionStorage.setItem("UserGuard", userEmail.value);
     setTimeout(function () {
         SuccessToast.style.opacity = 0;
     }, 3000);
@@ -134,7 +142,6 @@ function ToastSuccessLogin() {
 // Toast Register Fail
 function ToastFailLogin() {
     FailToast.style.opacity = 100;
-    sessionStorage.setItem("UserGuard", userEmail.value);
     setTimeout(function () {
         FailToast.style.opacity = 0;
     }, 3000);
