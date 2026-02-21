@@ -78,7 +78,9 @@ if (!sessionStorage.getItem("UserGuard")) {
 
     var RandomNumbers = JSON.parse(sessionStorage.getItem("RandomNumbers"));
     // console.log(RandomNumbers);
-
+/**
+ * Array of Questions
+ */
     var Questions = [
         {
             Head: " What does HTML stand for?",
@@ -171,19 +173,26 @@ if (!sessionStorage.getItem("UserGuard")) {
             Answer: "B) href"
         }
     ];
+
+    // push data to local storage
     if (!localStorage.getItem("Questions")) {
         localStorage.setItem("Questions", JSON.stringify(Questions));
     }
 
+
+    //add random number to question
     for (var j = 0; j < Questions.length; j++) {
         Questions[j].ID = RandomNumbers[j];
     }
 
+
+    //sort the questions
     Questions.sort(function (a, b) {
         return a.ID - b.ID;
     })
 
 
+    //add number of head of the questoin
     for (var k = 0; k < Questions.length; k++) {
         Questions[k].Head = (k + 1) + Questions[k].Head;
     }
@@ -239,7 +248,7 @@ if (!sessionStorage.getItem("UserGuard")) {
             AnswerOptions[2].textContent = Questions[CurrentIndex - 1].C;
             AnswerOptions[3].textContent = Questions[CurrentIndex - 1].D;
         }
-        //check for answer
+        //check for answer to get back 
         userAnswersSession = JSON.parse(sessionStorage.getItem("userAnswersSession")) || [];
 
         for (var x = 0; x < RadioAnswers.length; x++) {
@@ -276,7 +285,8 @@ if (!sessionStorage.getItem("UserGuard")) {
             AnswerOptions[2].textContent = Questions[CurrentIndex + 1].C;
             AnswerOptions[3].textContent = Questions[CurrentIndex + 1].D;
         }
-        //check for answer
+
+        //check for answer to get back 
         var userAnswersSession = JSON.parse(sessionStorage.getItem("userAnswersSession")) || [];
 
         for (var x = 0; x < RadioAnswers.length; x++) {
@@ -404,6 +414,7 @@ if (!sessionStorage.getItem("UserGuard")) {
      * if there is areload happened
      */
     window.addEventListener("load", function () {
+        //get trackbtn check back after reload
         let QuestionsCopy = JSON.parse(sessionStorage.getItem("QuestionsCopy"));
 
         let userAnswersSession = JSON.parse(sessionStorage.getItem("userAnswersSession")) || [];
@@ -421,7 +432,7 @@ if (!sessionStorage.getItem("UserGuard")) {
             }
         }
 
-
+        //get the answer back after reload
         var ID = QuestionId.textContent;
 
         for (var x = 0; x < RadioAnswers.length; x++) {
