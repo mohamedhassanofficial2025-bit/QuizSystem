@@ -103,7 +103,7 @@ function validateLogin(e) {
             sessionStorage.setItem("UserGuard", JSON.stringify(userEmail.value));
 
             let users = JSON.parse(localStorage.getItem("users"));
-            let hasResult = users.some(element => element.email == userEmail.value && element.Result);
+            let hasResult = users.some(element => element.email == userEmail.value && element.Result != undefined);
             if (hasResult) {
                 location.replace("../html/Result.html");
             } else {
