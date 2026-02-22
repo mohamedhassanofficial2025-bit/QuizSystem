@@ -104,11 +104,13 @@ function validateLogin(e) {
 
             let users = JSON.parse(localStorage.getItem("users"));
             let hasResult = users.some(element => element.email == userEmail.value && element.Result != undefined);
-            if (hasResult) {
-                location.replace("../html/Result.html");
-            } else {
-                location.replace("../html/Landing.html");
-            }
+            setTimeout(() => {
+                if (hasResult) {
+                    location.replace("../html/Result.html");
+                } else {
+                    location.replace("../html/Landing.html");
+                }
+            }, 1000);
         }
         else {
             ToastFailLogin()

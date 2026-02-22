@@ -3,12 +3,22 @@
 if (!sessionStorage.getItem("UserGuard")) {
     location.replace("../html/Login.html");
 } else {
-
-    
     /**
  * implementation of body of Exam
  */
-
+    //check user result guard for exam
+    function checkuserResult() {
+        var UserEmail = JSON.parse(sessionStorage.getItem("UserGuard"));
+        console.log(UserEmail)
+        let users = JSON.parse(localStorage.getItem("users"));
+        console.log(users)
+        let hasResult = users.some(element => element.email == UserEmail && element.Result != undefined);
+        console.log(hasResult);
+        if (hasResult) {
+            location.replace("../html/Result.html");
+        }
+    }
+    checkuserResult();
 
     // variables
     //catch radio for the Questions
