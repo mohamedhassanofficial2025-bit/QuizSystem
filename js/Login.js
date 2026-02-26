@@ -101,15 +101,8 @@ function validateLogin(e) {
         if (flag == true) {
             ToastSuccessLogin();
             sessionStorage.setItem("UserGuard", JSON.stringify(userEmail.value));
-
-            let users = JSON.parse(localStorage.getItem("users"));
-            let hasResult = users.some(element => element.email == userEmail.value && element.Result != undefined);
             setTimeout(() => {
-                if (hasResult) {
-                    location.replace("../html/Result.html");
-                } else {
-                    location.replace("../html/Landing.html");
-                }
+                location.replace("../html/Home.html");
             }, 1000);
         }
         else {

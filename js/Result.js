@@ -2,7 +2,6 @@
 if (!sessionStorage.getItem("UserGuard")) {
     location.replace("../html/Login.html");
 }
-
 //---------------------------------------------------------------------------
 const tokenUser = JSON.parse(sessionStorage.getItem("UserGuard"));
 const users = JSON.parse(localStorage.getItem("users")) || [];

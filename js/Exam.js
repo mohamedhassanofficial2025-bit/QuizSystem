@@ -15,7 +15,7 @@ if (!sessionStorage.getItem("UserGuard")) {
         let hasResult = users.some(element => element.email == UserEmail && element.Result != undefined);
         console.log(hasResult);
         if (hasResult) {
-            location.replace("../html/Result.html");
+            location.replace("../html/Home.html");
         }
     }
     checkuserResult();
@@ -562,7 +562,7 @@ if (!sessionStorage.getItem("UserGuard")) {
         // sessionStorage.setItem("Result", JSON.stringify(Result));
         AddResultToUser(Result);
         setTimeout(() => {
-            window.location.replace("../html/Result.html");
+            window.location.replace("../html/Home.html");
         }, 1000);
     }
 

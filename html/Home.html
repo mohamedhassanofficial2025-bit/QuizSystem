@@ -1,0 +1,87 @@
+<!DOCTYPE html class="scroll-smooth">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        html {
+        scroll-behavior: smooth;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+</head>
+<body class="scroll-pt-60 bg-[#293d73]">
+    <div id="container" class=" min-h-screen bg-transparent">
+        <div id="navbar" class="fixed left-0 top-0 right-0 flex justify-between items-center bg-[#131e45] px-6 py-1  "><!-- flex  -->
+            <div id="Logo" class="w-24 md:w-28">
+                <a href="#home" class="block hover:opacity-80 transition-opacity">
+                    <img src="../assets/ExamLogo.png" alt="Exam System Logo" class="w-full h-auto object-contain">
+                </a>
+            </div>
+            <div id="controltheme" class="flex justify-center items-center gap-3">
+                <label class="swap swap-rotate">
+                    <!-- this hidden checkbox controls the state -->
+                    <input id="themeColor" type="checkbox" class="theme-controller" value="dark" />
+                
+                    <!-- sun icon -->
+                    <svg class="swap-off h-10 w-8 fill-current text-amber-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+                    </svg>
+                
+                    <!-- moon icon -->
+                    <svg class="swap-on h-10 w-8 fill-current text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+                    </svg>
+                </label>
+                <div class="avatar" id="avatar">
+                    <div class="w-14 md:w-16 rounded-full">
+                        <a href="#list" id="avatar"><img src="../assets/user.avif" /></a>
+                    </div>
+                    <div id="menu" class="hidden fixed right-5  top-20 lg:top-25  bg-slate-500 w-40 h-30 md:w-80  rounded-2xl px-1 py-3">
+                        <ul class="text-center">
+                            <li id="ProfileBtn" class="hover:bg-slate-700 rounded-xl cursor-pointer text-white" >Profile</li>
+                            <li id="resultBtn" class="hover:bg-slate-700 rounded-xl cursor-pointer text-white" >Result</li>
+                            <li id="logOutBtn" class="hover:bg-slate-700 rounded-xl cursor-pointer text-red-600">log out</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home" class="py-30 lg:pl-20 flex bg-transparent flex-col lg:flex-row items-center  lg:justify-between lg:items-center px-6 "><!-- flex -->
+            <div id="content" class="mt-20  bg-inherit w-full lg:w-1/2 flex flex-col items-center lg:items-start">
+                <h2 class="font-mono text-4xl font-bold mt-3 text-white">Welcome <span id="UserName"></span></h2>
+                <p class="w-7/8 mt-3 text-xl leading-7 text-white ">This exam consists of 10 multiple-choice questions covering HTML, CSS, and JavaScript basics.
+                You have 10 minutes to complete the exam. Once you start, the timer will begin and cannot be paused.</p>
+                <button id="examBtn" class="bg-transparent text-2xl font-semibold mt-6 border-1 text-white border-white p-3 bg-gray-300 rounded-full shadow-lg shadow-gray-700 hover:shadow-2xl hover:scale-105 hover:bg-white hover:text-[#131e45] transition transformcursor-pointer">Start Exam</button>
+            </div>
+            <div id="photo" class="bg-inherit w-full md:w-1/2 flex justify-center items-center">
+                <img src="../assets/Home.png" alt="ExamHomePhoto">
+            </div>
+        </div>
+    </div>
+    <div id="hasResultDiv" class="hidden bg-transparent text-white  items-center justify-center h-screen fixed inset-0 backdrop-blur-sm">
+        <div class="bg-slate-800 p-12 rounded-3xl text-center shadow-xl w-full max-w-lg">
+            <h1 class="text-4xl font-bold mb-4">Exam Result</h1>
+
+            <div id="userName" class="text-xl text-slate-300 mb-8"></div>
+    
+            <div id="scoreBox" class="text-3xl font-semibold mb-4"></div>
+            <div class="text-xl text-slate-400 mb-2">Your Percentage:</div>
+            <div id="percentageText" class="text-5xl font-extrabold text-green-400"></div>
+        </div>
+    </div>
+    <div id="noResultDiv"
+        class="hidden bg-transparent text-white  items-center justify-center h-screen fixed inset-0 backdrop-blur-sm">
+        <div class="bg-slate-800 p-12 rounded-3xl text-center shadow-xl w-full max-w-lg">
+            <h1 class="text-4xl font-bold mb-4">Exam Result</h1>
+            <div class="text-xl  mb-8 text-red-500">You have not take the eaxm yet!</div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="../js/Home.js"></script>
+</body>
+</html>
