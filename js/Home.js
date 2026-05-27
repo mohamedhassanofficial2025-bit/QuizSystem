@@ -1,6 +1,6 @@
 var UserGuard = JSON.parse(sessionStorage.getItem("UserGuard"));
 if (!UserGuard) {
-    location.replace("../html/Login.html");
+    location.replace("/html/Login.html");
 }
 
 /**
@@ -73,11 +73,11 @@ if (hasResult) {
 }
 
 examBtn.addEventListener("click", () => {
-    window.location.replace("../html/Landing.html");
+    window.location.replace("/html/Landing.html");
 })
 
 logOutBtn.addEventListener("click", () => {
-    window.location.replace("../html/Login.html");
+    window.location.replace("/html/Login.html");
 })
 
 

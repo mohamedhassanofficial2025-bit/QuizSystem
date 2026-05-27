@@ -1,6 +1,6 @@
 
 if (!sessionStorage.getItem("UserGuard")) {
-    location.replace("../html/Login.html");
+    location.replace("/html/Login.html");
 }
 //---------------------------------------------------------------------------
 const tokenUser = JSON.parse(sessionStorage.getItem("UserGuard"));
@@ -8,7 +8,7 @@ const users = JSON.parse(localStorage.getItem("users")) || [];
 const user = users.find(u => u.email === tokenUser);
 
 if (!user || user.Result === undefined) {
-    location.replace("../html/Login.html");
+    location.replace("/html/Login.html");
 }
 
 //----------------------------------------------------------------------------

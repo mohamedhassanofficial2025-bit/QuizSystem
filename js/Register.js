@@ -203,7 +203,7 @@ function validateSignUP(e) {
 
         if (flag == false) {
             setTimeout(() => {
-                location.replace("../html/Login.html");
+                location.replace("/html/Login.html");
             }, 1500);
         }
     }

@@ -1,5 +1,5 @@
 if (!sessionStorage.getItem("UserGuard")) {
-    location.replace("../html/Login.html");
+    location.replace("/html/Login.html");
 } else { 
     /**
      * check if user has result
@@ -12,7 +12,7 @@ if (!sessionStorage.getItem("UserGuard")) {
         let hasResult = users.some(element => element.email == UserEmail && element.Result != undefined);
         console.log(hasResult);
         if (hasResult) {
-            location.replace("../html/Result.html");
+            location.replace("/html/Result.html");
         }
     }
     checkuserResult();
@@ -29,6 +29,6 @@ if (!sessionStorage.getItem("UserGuard")) {
         }
 
 
-        window.location.replace("../html/Exam.html");
+        window.location.replace("/html/Exam.html");
     });
 }

@@ -1,7 +1,7 @@
 //making user Guard
 
 if (!sessionStorage.getItem("UserGuard")) {
-    location.replace("../html/Login.html");
+    location.replace("/html/Login.html");
 } else {
     /**
  * implementation of body of Exam
@@ -15,7 +15,7 @@ if (!sessionStorage.getItem("UserGuard")) {
         let hasResult = users.some(element => element.email == UserEmail && element.Result != undefined);
         console.log(hasResult);
         if (hasResult) {
-            location.replace("../html/Home.html");
+            location.replace("/html/Home.html");
         }
     }
     checkuserResult();
@@ -562,7 +562,7 @@ if (!sessionStorage.getItem("UserGuard")) {
         // sessionStorage.setItem("Result", JSON.stringify(Result));
         AddResultToUser(Result);
         setTimeout(() => {
-            window.location.replace("../html/Home.html");
+            window.location.replace("/html/Home.html");
         }, 1000);
     }
 
